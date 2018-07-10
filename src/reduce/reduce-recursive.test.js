@@ -2,6 +2,7 @@
 
 import { expect } from 'chai'
 import reduce from './reduce-recursive'
+import reduceRightRecursive from './reduce-right-recursive'
 
 it('reduce should be a function', () => {
   expect(reduce).to.be.a('function')
@@ -45,7 +46,11 @@ it('reduce([1, 2], (acc, item, index, array) => acc + array[index], 0) should re
   const after = 3
   expect(before).to.be.equal(after)
 })
-
+it('reduceRight(["Jose","Paulo"], (acc, item) => acc + item,"") should return "Paulo Jose"', () => {
+  const before = reduceRightRecursive(["Jose","Paulo"], (acc, item ) => acc + item,'')
+  const after = "PauloJose"
+  expect(before).to.be.equal(after)
+});
 
 
 
